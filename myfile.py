@@ -3,8 +3,9 @@ import pandas as pd
 import numpy as np
 
 st.title('Casos Positivos Covid')
-st.write('Aquí revisaremos los casos positivos de covid en Perú a lo largo del tiempo. Trabajo Final Prueba')
+st.header('Total de Casos:')
 
-#df = pd.read_csv('positivos_covid.csv')
-#st.line_chart(df)
-date=st.date_input('Seleccionar fecha')
+data = pd.read_csv('positivos_covid.csv')
+total=len(data)
+st.dataframe(total)
+#date=st.date_input('Seleccionar fecha')
