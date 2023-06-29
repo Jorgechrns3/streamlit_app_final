@@ -17,9 +17,8 @@ st.markdown(
          unsafe_allow_html=True
      )
 #####
-st.markdown(f'<h1 style="color:#fafdfa;font-size:50px;">{"CCasos Positivos Covid"}</h1>', unsafe_allow_html=True)
-st.title('Casos Positivos Covid')
-st.header('Total de Casos:')
+st.markdown(f'<h1 style="color:#fafdfa;font-size:50px;">{"Casos Positivos Covid"}</h1>', unsafe_allow_html=True)
+st.markdown(f'<h1 style="color:#fafdfa;font-size:30px;">{"Total de Casos:"}</h1>', unsafe_allow_html=True)
 
 url = 'https://drive.google.com/file/d/18Rkz4SouRbyf9Xs9GUBJ0y9ce_csghfy/view?usp=sharing'
 path = 'https://drive.google.com/uc?export=download&id='+url.split('/')[-2]
