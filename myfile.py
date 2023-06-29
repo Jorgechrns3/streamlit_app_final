@@ -17,15 +17,17 @@ st.markdown(
          unsafe_allow_html=True
      )
 #####
-st.markdown(f'<h1 style="color:#fafdfa;font-size:30px;">{"Miembros del equipo"}</h1>', unsafe_allow_html=True)
-st.markdown(f'<h1 style="color:#fafdfa;font-size:30px;">{""
-- Chirinos Paredes, Jorge
-- Pacsi Inga, Saransh
-- Pacheco Jeri, Sharon Gless 
-- Manyahuillca, Borda Zully
-""}</h1>', unsafe_allow_html=True)
+
+
 st.markdown(f'<h1 style="color:#fafdfa;font-size:50px;">{"Casos Positivos Covid"}</h1>', unsafe_allow_html=True)
 st.markdown(f'<h1 style="color:#fafdfa;font-size:30px;">{"Total de Casos:"}</h1>', unsafe_allow_html=True)
+ #Nombres de integrantes
+st.markdown(f'<h1 style="color:#fafdfa;font-size:30px;">{"Miembros del equipo"}</h1>', unsafe_allow_html=True)
+st.markdown(f'<h1 style="color:#fafdfa;font-size:13px;">{"- Chirinos Paredes, Jorge"}</h1>', unsafe_allow_html=True)
+st.markdown(f'<h1 style="color:#fafdfa;font-size:13px;">{"- Pacsi Inga, Saranshe"}</h1>', unsafe_allow_html=True)
+st.markdown(f'<h1 style="color:#fafdfa;font-size:13px;">{"- Pacheco Jeri, Sharon Gless "}</h1>', unsafe_allow_html=True)
+st.markdown(f'<h1 style="color:#fafdfa;font-size:13px;">{"- Manyahuillca, Borda Zully "}</h1>', unsafe_allow_html=True)
+###
 
 url = 'https://drive.google.com/file/d/18Rkz4SouRbyf9Xs9GUBJ0y9ce_csghfy/view?usp=sharing'
 path = 'https://drive.google.com/uc?export=download&id='+url.split('/')[-2]
