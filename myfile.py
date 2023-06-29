@@ -3,7 +3,20 @@ import pandas as pd
 from datetime import datetime
 import numpy as np
 import matplotlib.pyplot as plt
-
+#color de pagina
+st.markdown(
+         f"""
+         <style>
+         .stApp {{
+             background-image: url("https://img.freepik.com/vector-gratis/diseno-fondo-brote-pandemico-coronavirus-azul-covid-19_1017-24425.jpg");
+             background-attachment: fixed;
+             background-size: cover
+         }}
+         </style>
+         """,
+         unsafe_allow_html=True
+     )
+#####
 st.title('Casos Positivos Covid')
 st.header('Total de Casos:')
 
