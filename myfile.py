@@ -53,21 +53,24 @@ st.markdown(count_display, unsafe_allow_html=True)
 #Construccion del set/list de departamentos (Valores unicos sin NA)
 set_departamentos = np.sort(df['DEPARTAMENTO'].dropna().unique())
 #Seleccion del departamento
-opcion_departamento = st.selectbox('Selecciona un departamento', set_departamentos)
+st.markdown(f'<h1 style="color:#fafdfa;font-size:15px;">{"Selecciona un departamento"}</h1>', unsafe_allow_html=True)
+opcion_departamento = st.selectbox('', set_departamentos)
 df_departamentos = df[df['DEPARTAMENTO'] == opcion_departamento]
 num_filas = len(df_departamentos.axes[0]) 
 
 #Construccion del set/list de provincias (Valores unicos sin NA)
 set_provincias = np.sort(df_departamentos['PROVINCIA'].dropna().unique())
 #Seleccion de la provincia
-opcion_provincia = st.selectbox('Selecciona una provincia', set_provincias)
+st.markdown(f'<h1 style="color:#fafdfa;font-size:15px;">{"Selecciona una provincia"}</h1>', unsafe_allow_html=True)
+opcion_provincia = st.selectbox('', set_provincias)
 df_provincias = df_departamentos[df_departamentos['PROVINCIA'] == opcion_provincia]
 num_filas = len(df_provincias.axes[0]) 
 
 #Construccion del set/list de distritos (Valores unicos sin NA)
 set_distritos = np.sort(df_departamentos['DISTRITO'].dropna().unique())
 #Seleccion de la distrito
-opcion_distrito = st.selectbox('Selecciona un distrito', set_distritos)
+st.markdown(f'<h1 style="color:#fafdfa;font-size:15px;">{"Selecciona un distrito"}</h1>', unsafe_allow_html=True)
+opcion_distrito = st.selectbox('', set_distritos)
 df_distritos = df_departamentos[df_departamentos['DISTRITO'] == opcion_distrito]
 num_filas = len(df_distritos.axes[0]) 
 
