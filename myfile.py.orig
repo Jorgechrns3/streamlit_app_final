@@ -29,12 +29,9 @@ st.markdown(f'<h1 style="color:#fafdfa;font-size:13px;">{"- Pacheco Jeri, Sharon
 st.markdown(f'<h1 style="color:#fafdfa;font-size:13px;">{"- Manyahuillca, Borda Zully "}</h1>', unsafe_allow_html=True)
 ###
 
-# url = 'https://drive.google.com/file/d/18Rkz4SouRbyf9Xs9GUBJ0y9ce_csghfy/view?usp=sharing'
-# path = 'https://drive.google.com/uc?export=download&id='+url.split('/')[-2]
-# df = pd.read_csv(path, delimiter=';')
-
-df = pd.read_csv('positivos_covid.csv', delimiter=';')
-# st.write(df.columns)
+url = 'https://drive.google.com/file/d/18Rkz4SouRbyf9Xs9GUBJ0y9ce_csghfy/view?usp=sharing'
+path = 'https://drive.google.com/uc?export=download&id='+url.split('/')[-2]
+df = pd.read_csv(path, delimiter=';')
 
 # Convertir la columna 'FECHA_RESULTADO' al formato de fecha y hora
 df['FECHA_RESULTADO'] = pd.to_datetime(df['FECHA_RESULTADO'], format='%Y%m%d')
@@ -61,6 +58,8 @@ count_display = f"<h1 style='text-align: center;'>{formatted_count}</h1>"
 st.markdown(count_display, unsafe_allow_html=True)
 
 #Sistema de filtros
+<<<<<<< HEAD
+=======
 
 #Construccion del set/list de departamentos (Valores unicos sin NA)
 set_departamentos = np.sort(df['DEPARTAMENTO'].dropna().unique())
@@ -112,6 +111,7 @@ df_edad = df_distritos.EDAD.value_counts()
 st.markdown(f'<h1 style="color:#fafdfa;font-size:30px;">{"Distribución por EDAD:"}</h1>', unsafe_allow_html=True)
 st.bar_chart(df_edad)
 
+>>>>>>> 88302909199fe02f5a0691d91d6704606bde343a
 
 #Construccion del set/list de departamentos (Valores unicos sin NA)
 set_departamentos = np.sort(df['DEPARTAMENTO'].dropna().unique())
