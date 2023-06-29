@@ -17,6 +17,7 @@ st.markdown(
          unsafe_allow_html=True
      )
 #####
+st.markdown(f'<h1 style="color:#fafdfa;font-size:50px;">{"CCasos Positivos Covid"}</h1>', unsafe_allow_html=True)
 st.title('Casos Positivos Covid')
 st.header('Total de Casos:')
 
