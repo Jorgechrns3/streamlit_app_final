@@ -84,17 +84,17 @@ df_metododx.columns = ['METODODX', 'Total']
 fig1, ax1 = plt.subplots()
 ax1.pie(df_metododx['Total'], labels=df_metododx['METODODX'], autopct='%1.1f%%')
 ax1.axis('equal')  # Equal aspect ratio ensures that pie is drawn as a circle.
-st.write('Distribución por METODODX:')
+st.markdown(f'<h1 style="color:#fafdfa;font-size:30px;">{"Distribución por METODODX:"}</h1>', unsafe_allow_html=True)
 st.pyplot(fig1)
 
 #Gráfica de barras de SEXO
 df_SEXO = df_distritos.SEXO.value_counts()
-st.write('Distribución por SEXO:')
+st.markdown(f'<h1 style="color:#fafdfa;font-size:30px;">{"Distribución por SEXO:"}</h1>', unsafe_allow_html=True)
 st.bar_chart(df_SEXO)
 
 #Gráfica de barras de EDAD
 df_edad = df_distritos.EDAD.value_counts()
-st.write('Distribución por EDAD:')
+st.markdown(f'<h1 style="color:#fafdfa;font-size:30px;">{"Distribución por EDAD:"}</h1>', unsafe_allow_html=True)
 st.bar_chart(df_edad)
 
 
