@@ -1,9 +1,33 @@
 import streamlit as st
 import pandas as pd
 from datetime import datetime
+import numpy as np
+import matplotlib.pyplot as plt
+#color de pagina
+st.markdown(
+         f"""
+         <style>
+         .stApp {{
+             background-image: url("https://img.freepik.com/vector-gratis/diseno-fondo-brote-pandemico-coronavirus-azul-covid-19_1017-24425.jpg");
+             background-attachment: fixed;
+             background-size: cover
+         }}
+         </style>
+         """,
+         unsafe_allow_html=True
+     )
+#####
 
-st.title('Casos Positivos Covid')
-st.header('Total de Casos:')
+
+st.markdown(f'<h1 style="color:#fafdfa;font-size:50px;">{"Casos Positivos Covid"}</h1>', unsafe_allow_html=True)
+st.markdown(f'<h1 style="color:#fafdfa;font-size:30px;">{"Total de Casos:"}</h1>', unsafe_allow_html=True)
+ #Nombres de integrantes
+st.markdown(f'<h1 style="color:#fafdfa;font-size:30px;">{"Miembros del equipo"}</h1>', unsafe_allow_html=True)
+st.markdown(f'<h1 style="color:#fafdfa;font-size:13px;">{"- Chirinos Paredes, Jorge"}</h1>', unsafe_allow_html=True)
+st.markdown(f'<h1 style="color:#fafdfa;font-size:13px;">{"- Pacsi Inga, Saransh"}</h1>', unsafe_allow_html=True)
+st.markdown(f'<h1 style="color:#fafdfa;font-size:13px;">{"- Pacheco Jeri, Sharon Gless "}</h1>', unsafe_allow_html=True)
+st.markdown(f'<h1 style="color:#fafdfa;font-size:13px;">{"- Manyahuillca, Borda Zully "}</h1>', unsafe_allow_html=True)
+###
 
 url = 'https://drive.google.com/file/d/18Rkz4SouRbyf9Xs9GUBJ0y9ce_csghfy/view?usp=sharing'
 path = 'https://drive.google.com/uc?export=download&id='+url.split('/')[-2]
@@ -33,4 +57,54 @@ formatted_count = "{:,}".format(total)
 count_display = f"<h1 style='text-align: center;'>{formatted_count}</h1>"
 st.markdown(count_display, unsafe_allow_html=True)
 
+#Sistema de filtros
 
+#Construccion del set/list de departamentos (Valores unicos sin NA)
+set_departamentos = np.sort(df['DEPARTAMENTO'].dropna().unique())
+#Seleccion del departamento
+st.markdown(f'<h1 style="color:#fafdfa;font-size:15px;">{"Selecciona un departamento"}</h1>', unsafe_allow_html=True)
+opcion_departamento = st.selectbox('', set_departamentos)
+df_departamentos = df[df['DEPARTAMENTO'] == opcion_departamento]
+num_filas = len(df_departamentos.axes[0]) 
+
+#Construccion del set/list de provincias (Valores unicos sin NA)
+set_provincias = np.sort(df_departamentos['PROVINCIA'].dropna().unique())
+#Seleccion de la provincia
+st.markdown(f'<h1 style="color:#fafdfa;font-size:15px;">{"Selecciona una provincia"}</h1>', unsafe_allow_html=True)
+opcion_provincia = st.selectbox('', set_provincias)
+df_provincias = df_departamentos[df_departamentos['PROVINCIA'] == opcion_provincia]
+num_filas = len(df_provincias.axes[0]) 
+
+#Construccion del set/list de distritos (Valores unicos sin NA)
+set_distritos = np.sort(df_departamentos['DISTRITO'].dropna().unique())
+#Seleccion de la distrito
+st.markdown(f'<h1 style="color:#fafdfa;font-size:15px;">{"Selecciona un distrito"}</h1>', unsafe_allow_html=True)
+opcion_distrito = st.selectbox('', set_distritos)
+df_distritos = df_departamentos[df_departamentos['DISTRITO'] == opcion_distrito]
+num_filas = len(df_distritos.axes[0]) 
+
+st.write('Numero de registros:', num_filas)
+
+#Gráficas
+
+#Gráfica de pie de METODODX
+df_metododx = df_distritos.METODODX.value_counts()
+df_metododx = pd.DataFrame(df_metododx)
+df_metododx = df_metododx.reset_index()  
+df_metododx.columns = ['METODODX', 'Total']
+
+fig1, ax1 = plt.subplots()
+ax1.pie(df_metododx['Total'], labels=df_metododx['METODODX'], autopct='%1.1f%%')
+ax1.axis('equal')  # Equal aspect ratio ensures that pie is drawn as a circle.
+st.markdown(f'<h1 style="color:#fafdfa;font-size:30px;">{"Distribución por METODODX:"}</h1>', unsafe_allow_html=True)
+st.pyplot(fig1)
+
+#Gráfica de barras de SEXO
+df_SEXO = df_distritos.SEXO.value_counts()
+st.markdown(f'<h1 style="color:#fafdfa;font-size:30px;">{"Distribución por SEXO:"}</h1>', unsafe_allow_html=True)
+st.bar_chart(df_SEXO)
+
+#Gráfica de barras de EDAD
+df_edad = df_distritos.EDAD.value_counts()
+st.markdown(f'<h1 style="color:#fafdfa;font-size:30px;">{"Distribución por EDAD:"}</h1>', unsafe_allow_html=True)
+st.bar_chart(df_edad)
