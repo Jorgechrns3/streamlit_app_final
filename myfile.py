@@ -24,7 +24,7 @@ st.markdown(f'<h1 style="color:#fafdfa;font-size:30px;">{"Total de Casos:"}</h1>
  #Nombres de integrantes
 st.markdown(f'<h1 style="color:#fafdfa;font-size:30px;">{"Miembros del equipo"}</h1>', unsafe_allow_html=True)
 st.markdown(f'<h1 style="color:#fafdfa;font-size:13px;">{"- Chirinos Paredes, Jorge"}</h1>', unsafe_allow_html=True)
-st.markdown(f'<h1 style="color:#fafdfa;font-size:13px;">{"- Pacsi Inga, Saranshe"}</h1>', unsafe_allow_html=True)
+st.markdown(f'<h1 style="color:#fafdfa;font-size:13px;">{"- Pacsi Inga, Saransh"}</h1>', unsafe_allow_html=True)
 st.markdown(f'<h1 style="color:#fafdfa;font-size:13px;">{"- Pacheco Jeri, Sharon Gless "}</h1>', unsafe_allow_html=True)
 st.markdown(f'<h1 style="color:#fafdfa;font-size:13px;">{"- Manyahuillca, Borda Zully "}</h1>', unsafe_allow_html=True)
 ###
