@@ -18,12 +18,12 @@ st.markdown(
      )
 #####
 st.markdown(f'<h1 style="color:#fafdfa;font-size:30px;">{"Miembros del equipo"}</h1>', unsafe_allow_html=True)
-st.markdown(f'<h1 style="color:#fafdfa;font-size:30px;">{"""
+st.markdown(f'<h1 style="color:#fafdfa;font-size:30px;">{""
 - Chirinos Paredes, Jorge
 - Pacsi Inga, Saransh
 - Pacheco Jeri, Sharon Gless 
 - Manyahuillca, Borda Zully
-"""}</h1>', unsafe_allow_html=True)
+""}</h1>', unsafe_allow_html=True)
 st.markdown(f'<h1 style="color:#fafdfa;font-size:50px;">{"Casos Positivos Covid"}</h1>', unsafe_allow_html=True)
 st.markdown(f'<h1 style="color:#fafdfa;font-size:30px;">{"Total de Casos:"}</h1>', unsafe_allow_html=True)
 
