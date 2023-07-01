@@ -8,7 +8,7 @@ st.markdown(
          f"""
          <style>
          .stApp {{
-             background-image: url("https://img.freepik.com/vector-gratis/diseno-fondo-brote-pandemico-coronavirus-azul-covid-19_1017-24425.jpg");
+             background-image: url("https://api.time.com/wp-content/uploads/2021/02/GettyImages-1212490540.jpg");
              background-attachment: fixed;
              background-size: cover
          }}
