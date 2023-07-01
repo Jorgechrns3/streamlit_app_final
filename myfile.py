@@ -29,14 +29,14 @@ st.markdown(f'<h1 style="color:#fafdfa;font-size:13px;">{"- Pacheco Jeri, Sharon
 st.markdown(f'<h1 style="color:#fafdfa;font-size:13px;">{"- Manyahuillca, Borda Zully "}</h1>', unsafe_allow_html=True)
 ###
 
-# url = 'https://drive.google.com/file/d/18Rkz4SouRbyf9Xs9GUBJ0y9ce_csghfy/view?usp=sharing'
-# path = 'https://drive.google.com/uc?export=download&id='+url.split('/')[-2]
-# df = pd.read_csv(path, delimiter=';')
+url = 'https://drive.google.com/file/d/18Rkz4SouRbyf9Xs9GUBJ0y9ce_csghfy/view?usp=sharing'
+path = 'https://drive.google.com/uc?export=download&id='+url.split('/')[-2]
+df = pd.read_csv(path, delimiter=';')
 
 # url = 'https://media.githubusercontent.com/media/Jorgechrns3/streamlit_app_final/main/positivos_covid.csv'
 # df = pd.read_csv(url, delimiter=';')
 # st.write(df.columns)
-df = pd.read_csv("positivos_covid.csv", delimiter=';')
+# df = pd.read_csv("positivos_covid.csv", delimiter=';')
 # Convertir la columna 'FECHA_RESULTADO' al formato de fecha y hora
 df['FECHA_RESULTADO'] = pd.to_datetime(df['FECHA_RESULTADO'], format='%Y%m%d')
 
