@@ -23,7 +23,7 @@ st.markdown(
 st.markdown(f'<h1 style="color:#fafdfa;font-size:50px;">{"Casos Positivos Covid"}</h1>', unsafe_allow_html=True)
 # Información sobre la fuente de datos y última actualización
 # Cargar datos desde el archivo
-df = pd.read_csv("positivos_covid_prueba.csv", delimiter=';')
+df = pd.read_csv("positivos_covid-cortado.csv", delimiter=';', encoding='latin-1')
 fecha_corte = pd.to_datetime(df['FECHA_CORTE'].max(), format='%Y%m%d')
 st.markdown('''
             <div style="background-color: rgba(8, 8, 8, 0.8); padding: 10px;border-radius: 10px;">
@@ -36,8 +36,6 @@ st.markdown('''
             '''.format(fecha_corte.strftime("%d/%m/%Y").replace(" 00:00:00", "")), unsafe_allow_html=True)
 
 st.header("Total de Casos:")
-# Cargar datos desde el archivo
-df = pd.read_csv("positivos_covid_prueba.csv", delimiter=';')
 # Convertir la columna 'FECHA_RESULTADO' al formato de fecha y hora
 df['FECHA_RESULTADO'] = pd.to_datetime(df['FECHA_RESULTADO'], format='%Y%m%d')
 # Obtener lista de departamentos
@@ -72,8 +70,9 @@ if not show_all_locations:
                 filtered_df = filtered_df[filtered_df['DISTRITO'] == selected_distrito]
 # Obtener el total de casos
 total_cases = len(filtered_df)
+contador = "{:,}".format(total_cases)
 # Mostrar el total de casos
-st.markdown(f"<h1 style='text-align: center;'>{total_cases}</h1>", unsafe_allow_html=True)
+st.markdown(f"<h1 style='text-align: center;'>{contador}</h1>", unsafe_allow_html=True)
 #
 st.markdown("# ")
 # Gráfico de línea de casos en el tiempo
