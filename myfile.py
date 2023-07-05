@@ -42,8 +42,9 @@ df['FECHA_RESULTADO'] = pd.to_datetime(df['FECHA_RESULTADO'], format='%Y%m%d')
 departamentos = df['DEPARTAMENTO'].unique()
 # Barra lateral para la selección de parámetros
 st.sidebar.title("Parámetros")
-date_range = st.sidebar.selectbox("Rango de fechas", ("Última semana", "Último mes", "Último año", "Todo el tiempo"))
-show_all_locations = st.sidebar.checkbox("Mostrar todos los lugares")
+options=("Última semana", "Último mes", "Último año", "Todo el tiempo")
+date_range = st.sidebar.selectbox("Rango de fechas",options,index=options.index("Todo el tiempo"))
+show_all_locations = st.sidebar.checkbox("Mostrar todos los lugares", value=True)
 selected_departamento = st.sidebar.selectbox("Departamento", departamentos)
 # Filtrar el DataFrame en base a los parámetros seleccionados
 filtered_df = df.copy()
@@ -104,7 +105,7 @@ st.markdown("# ")
 st.header("Otras estadísticas:")
 # Calcular las estadísticas
 promedio_edad = np.mean(filtered_df["EDAD"])
-porcentaje_mujeres = np.mean(filtered_df["SEXO"] == "F") * 100
+porcentaje_mujeres = np.mean(filtered_df["SEXO"] == "FEMENINO") * 100
 # Crear la figura para el gráfico de edad (histograma)
 fig1, ax1 = plt.subplots(figsize=(8, 6))
 ax1.hist(filtered_df["EDAD"], bins=20, edgecolor='black', color='steelblue')
@@ -118,8 +119,8 @@ st.pyplot(fig1)
 st.markdown("# ")
 # Crear la figura para el gráfico de género (gráfico circular)
 fig2, ax2 = plt.subplots(figsize=(6, 4))
-if isinstance(porcentaje_mujeres,int):
-    ax2.pie([porcentaje_mujeres, 100-porcentaje_mujeres], labels=['Mujeres', 'Hombres'], autopct='%1.1f%%', startangle=180)
+#if isinstance(porcentaje_mujeres,int):
+ax2.pie([porcentaje_mujeres, 100-porcentaje_mujeres], labels=['Mujeres', 'Hombres'], autopct='%1.1f%%', startangle=90)
 plt.axis('equal')
 plt.title('Distribución de Género')
 st.pyplot(fig2)
