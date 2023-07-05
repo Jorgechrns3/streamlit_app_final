@@ -35,29 +35,9 @@ st.markdown('''
             </div>
             '''.format(fecha_corte.strftime("%d/%m/%Y").replace(" 00:00:00", "")), unsafe_allow_html=True)
 
-<<<<<<< HEAD
 st.header("Total de Casos:")
 # Cargar datos desde el archivo
 df = pd.read_csv("positivos_covid_prueba.csv", delimiter=';')
-||||||| 86fef2a
-# url = 'https://drive.google.com/file/d/18Rkz4SouRbyf9Xs9GUBJ0y9ce_csghfy/view?usp=sharing'
-# path = 'https://drive.google.com/uc?export=download&id='+url.split('/')[-2]
-# df = pd.read_csv(path, delimiter=';')
-
-# url = 'https://media.githubusercontent.com/media/Jorgechrns3/streamlit_app_final/main/positivos_covid.csv'
-# df = pd.read_csv(url, delimiter=';')
-# st.write(df.columns)
-df = pd.read_csv("positivos_covid.csv", delimiter=';')
-=======
-url = 'https://drive.google.com/file/d/18Rkz4SouRbyf9Xs9GUBJ0y9ce_csghfy/view?usp=sharing'
-path = 'https://drive.google.com/uc?export=download&id='+url.split('/')[-2]
-df = pd.read_csv(path, delimiter=';')
-
-# url = 'https://media.githubusercontent.com/media/Jorgechrns3/streamlit_app_final/main/positivos_covid.csv'
-# df = pd.read_csv(url, delimiter=';')
-# st.write(df.columns)
-# df = pd.read_csv("positivos_covid.csv", delimiter=';')
->>>>>>> 093ec35f87f8b59b858f4e285d3362b7b1e7699a
 # Convertir la columna 'FECHA_RESULTADO' al formato de fecha y hora
 df['FECHA_RESULTADO'] = pd.to_datetime(df['FECHA_RESULTADO'], format='%Y%m%d')
 # Obtener lista de departamentos
