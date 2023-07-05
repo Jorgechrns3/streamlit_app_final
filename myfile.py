@@ -23,7 +23,7 @@ st.markdown(
 st.markdown(f'<h1 style="color:#fafdfa;font-size:50px;">{"Casos Positivos Covid"}</h1>', unsafe_allow_html=True)
 # Información sobre la fuente de datos y última actualización
 # Cargar datos desde el archivo
-df = pd.read_csv("positivos_covid-cortado.csv", delimiter=';', encoding='latin-1')
+df = pd.read_csv("positivos_covid.csv", delimiter=';', encoding='latin-1')
 fecha_corte = pd.to_datetime(df['FECHA_CORTE'].max(), format='%Y%m%d')
 st.markdown('''
             <div style="background-color: rgba(8, 8, 8, 0.8); padding: 10px;border-radius: 10px;">
