@@ -7,6 +7,17 @@ import numpy as np
 
 st.set_page_config(layout="wide")
 st.set_option('deprecation.showPyplotGlobalUse', False)  # Desactivar advertencia de deprecated
+# Formato de color blanco para los textos
+st.markdown(
+    """
+    <style>
+    body {
+        color: white;
+    }
+    </style>
+    """,
+    unsafe_allow_html=True
+)
 # Título y encabezado
 st.markdown(
     f"""
@@ -112,7 +123,7 @@ ax1.hist(filtered_df["EDAD"], bins=20, edgecolor='black', color='steelblue')
 plt.xlabel('Edad')
 plt.ylabel('Frecuencia')
 plt.title('Distribución de Edades')
-if isinstance(promedio_edad,int):
+if isinstance(promedio_edad,int) or isinstance(promedio_edad,float):
     plt.figtext(0.1,0,"Edad promedio: "+str(round(promedio_edad))+" años")
 st.pyplot(fig1)
 #
