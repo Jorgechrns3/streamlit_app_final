@@ -115,7 +115,7 @@ plt.title('Distribución de Edades')
 if isinstance(promedio_edad,int) or isinstance(promedio_edad,float):
     plt.figtext(0.1,0,"Edad promedio: "+str(round(promedio_edad))+" años")
 st.pyplot(fig1)
-#
+#####
 st.markdown("# ")
 # Crear la figura para el gráfico de género (gráfico circular)
 fig2, ax2 = plt.subplots(figsize=(6, 4))
