@@ -7,17 +7,6 @@ import numpy as np
 
 st.set_page_config(layout="wide")
 st.set_option('deprecation.showPyplotGlobalUse', False)  # Desactivar advertencia de deprecated
-# Formato de color blanco para los textos
-st.markdown(
-    """
-    <style>
-    body {
-        color: white;
-    }
-    </style>
-    """,
-    unsafe_allow_html=True
-)
 # Título y encabezado
 st.markdown(
     f"""
@@ -37,7 +26,7 @@ st.markdown(f'<h1 style="color:#fafdfa;font-size:50px;">{"Casos Positivos Covid"
 df = pd.read_csv("positivos_covid.csv", delimiter=';', encoding='latin-1')
 fecha_corte = pd.to_datetime(df['FECHA_CORTE'].max(), format='%Y%m%d')
 st.markdown('''
-            <div style="background-color: rgba(8, 8, 8, 0.8); padding: 10px;border-radius: 10px;">
+            <div style="color: white;background-color: rgba(8, 8, 8, 0.8); padding: 10px;border-radius: 10px;">
                 <strong>Casos positivos por COVID-19 - [Ministerio de Salud - MINSA]</strong>
                 <ul>
                     <li>Fuente: Instituto Nacional de Salud y Centro Nacional de Epidemiologia, prevención y Control de Enfermedades – MINSA.</li>
@@ -46,7 +35,7 @@ st.markdown('''
             </div>
             '''.format(fecha_corte.strftime("%d/%m/%Y").replace(" 00:00:00", "")), unsafe_allow_html=True)
 
-st.header("Total de Casos:")
+st.markdown('<h2 style="color: white;">Total de Casos:</h2>', unsafe_allow_html=True)
 # Convertir la columna 'FECHA_RESULTADO' al formato de fecha y hora
 df['FECHA_RESULTADO'] = pd.to_datetime(df['FECHA_RESULTADO'], format='%Y%m%d')
 # Obtener lista de departamentos
@@ -84,11 +73,11 @@ if not show_all_locations:
 total_cases = len(filtered_df)
 contador = "{:,}".format(total_cases)
 # Mostrar el total de casos
-st.markdown(f"<h1 style='text-align: center;'>{contador}</h1>", unsafe_allow_html=True)
+st.markdown(f"<h1 style='color: white;text-align: center;'>{contador}</h1>", unsafe_allow_html=True)
 #
 st.markdown("# ")
 # Gráfico de línea de casos en el tiempo
-st.header('Gráfico de casos en el tiempo:')
+st.markdown('<h2 style="color: white;">Gráfico de casos en el tiempo:</h2>', unsafe_allow_html=True)
 # Contar los casos por fecha
 cases_by_date = filtered_df['FECHA_RESULTADO'].value_counts().sort_index()
 # Generar el gráfico de línea
@@ -102,7 +91,7 @@ st.pyplot()
 #
 st.markdown("# ")
 # Gráfico circular de métodos de laboratorio
-st.header('Gráfico circular de métodos de laboratorio:')
+st.markdown('<h2 style="color: white;">Gráfico circular de métodos de laboratorio:</h2>', unsafe_allow_html=True)
 # Contar los métodos de laboratorio y generar el gráfico circular
 lab_methods = filtered_df['METODODX'].value_counts()
 plt.figure(figsize=(8, 8))
@@ -113,7 +102,7 @@ st.pyplot()
 #
 st.markdown("# ")
 # Estadísticas sobre los datos filtrados
-st.header("Otras estadísticas:")
+st.markdown('<h2 style="color: white;">Otras estadísticas:</h2>', unsafe_allow_html=True)
 # Calcular las estadísticas
 promedio_edad = np.mean(filtered_df["EDAD"])
 porcentaje_mujeres = np.mean(filtered_df["SEXO"] == "FEMENINO") * 100
@@ -143,8 +132,8 @@ st.markdown("# ")
 st.markdown("# ")
 st.markdown("# ")
 # Miembros del equipo
-st.markdown("### Equipo de trabajo:")
-st.markdown("- Chirinos Paredes, Jorge")
-st.markdown("- Pacsi Inga, Saransh")
-st.markdown("- Pacheco Jeri, Sharon Gless")
-st.markdown("- Manyahuillca, Borda Zully")
+st.markdown('<h3 style="color: white;">Equipo de trabajo:</h3>', unsafe_allow_html=True)
+st.markdown('<span style="color: white;">- Chirinos Paredes, Jorge</span>', unsafe_allow_html=True)
+st.markdown('<span style="color: white;">- Pacsi Inga, Saransh</span>', unsafe_allow_html=True)
+st.markdown('<span style="color: white;">- Pacheco Jeri, Sharon Gless</span>', unsafe_allow_html=True)
+st.markdown('<span style="color: white;">- Manyahuillca, Borda Zully</span>', unsafe_allow_html=True)
